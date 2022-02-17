@@ -22,13 +22,13 @@ function Todo({
     });
   };
 
-  if(edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitEdit} />
-  };
+  if (edit.id) {
+    return <TodoForm edit={edit} onSubmit={submitEdit} />;
+  }
 
   return todos.map((todo, index) => (
     <div
-      className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
+      className={todo.isComplete ? 'todo-complete' : 'todo-incomplete'}
       key={index}
     >
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
@@ -41,7 +41,7 @@ function Todo({
         />
         <TiEdit
           onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className="delete-icon"
+          className="edit-icon"
         />
       </div>
     </div>

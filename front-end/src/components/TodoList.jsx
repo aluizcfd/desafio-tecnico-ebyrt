@@ -29,7 +29,7 @@ function TodoList() {
 
   const editTodo = (id, newTodo) => {
     setTodos((oldTodo) => oldTodo.map((todo) => (todo.id === id ? newTodo : todo)));
-  } 
+  };
 
   return (
     <div>
