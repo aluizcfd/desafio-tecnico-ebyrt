@@ -21,6 +21,16 @@ function TodoList() {
     setTodos(updatedTodos);
   };
 
+  const removeTodo = (id) => {
+    const removeId = [...todos].filter((todo) => todo.id !== id);
+
+    setTodos(removeId);
+  };
+
+  const editTodo = (id, newTodo) => {
+    setTodos((oldTodo) => oldTodo.map((todo) => (todo.id === id ? newTodo : todo)));
+  };
+
   return (
     <div>
       <TodoForm
@@ -29,6 +39,8 @@ function TodoList() {
       <Todo
         todos={todos}
         completeTodo={completeTodo}
+        removeTodo={removeTodo}
+        editTodo={editTodo}
       />
     </div>
   );
