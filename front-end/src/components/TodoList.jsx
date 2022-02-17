@@ -21,6 +21,12 @@ function TodoList() {
     setTodos(updatedTodos);
   };
 
+  const removeTodo = (id) => {
+    const removeId = [...todos].filter((todo) => todo.id !== id);
+
+    setTodos(removeId);
+  };
+
   return (
     <div>
       <TodoForm
@@ -29,6 +35,7 @@ function TodoList() {
       <Todo
         todos={todos}
         completeTodo={completeTodo}
+        removeTodo={removeTodo}
       />
     </div>
   );
